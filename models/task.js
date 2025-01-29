@@ -1,6 +1,4 @@
 const { Model, DataTypes } = require('sequelize');
-
-
 const sequelize = require('../database/sequelize');
 
 class Task extends Model {}
@@ -11,19 +9,33 @@ Task.init({
     defaultValue: DataTypes.UUIDV4,
     primaryKey: true,
   },
-  taskName: {
+  userId: {
+    allowNull: false,
+    type: DataTypes.UUID,
+    reference: {
+      model: 'users',
+      key: 'id'
+    }
+  },
+  name: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  dueDate: {
-    type: DataTypes.DATE,
+  priority: {
+    type: DataTypes.ENUM,
+    values: ['low', 'medium', 'high'],
     allowNull: false,
   },
-  
+  isCompleted: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
+  },
+  dueDate: {
+    type: DataTypes.STRING,
+    allowNull: false
+  }
 }, {
   sequelize,
-  modelName: 'Task',
-  tableName: 'tasks',
   timestamps: true,
 });
 

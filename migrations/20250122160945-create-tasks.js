@@ -1,18 +1,37 @@
+'use strict';
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Tasks', {
+    await queryInterface.createTable('tasks', {
       id: {
         allowNull: false,
         primaryKey: true,
         type: Sequelize.UUID,
       },
-      taskName: {
+      userId: {
+        allowNull: false,
+        type: Sequelize.UUID,
+        reference: {
+          model: 'users',
+          key: 'id'
+        }
+      },
+      name: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      dueDate: {
-        type: Sequelize.DATE,
+      priority: {
+        type: Sequelize.ENUM,
+        values: ['low', 'medium', 'high'],
         allowNull: false,
+      },
+      dueDate: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      isCompleted: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
       },
       createdAt: {
         allowNull: false,
@@ -23,5 +42,9 @@ module.exports = {
         type: Sequelize.DATE,
       },
     });
-    },
+  },
+
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.dropTable('tasks');
   }
+};
