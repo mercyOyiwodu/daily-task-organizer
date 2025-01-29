@@ -45,9 +45,7 @@ exports.updateTask= async (req, res) => {
  exports.deleteTask = async (req, res) => {
   try {
     const {id} = req.params;
-    const deleted = await Task.destroy({
-      where: {id}
-    });
+    const deleted = await Task.destroy({where: {id}});
     if (deleted) {
       res.status(204).send({message:'Task deleted successfully'});
     } else {

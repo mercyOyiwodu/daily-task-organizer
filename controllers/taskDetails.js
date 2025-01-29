@@ -5,7 +5,7 @@ const {v4:uuid}= require("uuid")
 exports.createTaskDetails = async (req, res) => {
   try {
     const { taskId, priority, isCompleted } = req.body;
-    const newTaskDetails = await TaskDetails.create({id:uuid(), taskId, priority, isCompleted });
+    const newTaskDetails = await TaskDetails.create({id:uuid(), taskId:uuid(), priority, isCompleted });
     res.status(201).json({message:'task created successfully',newTaskDetails});
   } catch (error) {
     res.status(500).json({ error: 'Failed to create task details',error:error.message });
