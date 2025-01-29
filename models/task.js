@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../database/sequelize');
 
-class Task extends Model {}
+class tasks extends Model {}
 
-Task.init({
+tasks.init({
   id: {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
@@ -39,4 +39,4 @@ Task.init({
   timestamps: true,
 });
 
-module.exports = Task;
+module.exports = tasks;
