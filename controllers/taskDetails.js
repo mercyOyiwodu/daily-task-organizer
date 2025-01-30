@@ -38,16 +38,3 @@ exports.updateTaskDetail = async (req, res) => {
   }
 };
 
-// Delete TaskDetail
-exports.deleteTaskDetail = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const deleted = await TaskDetails.destroy({ where: { id } });
-    if (!deleted) {
-      return res.status(404).json({ message: 'Task detail not found' });
-    }
-    return res.status(200).json({ message: 'Task detail deleted successfully' });
-  } catch (error) {
-    res.status(500).json({ message: 'Failed to delete task detail', error: error.message });
-  }
-};
