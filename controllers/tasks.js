@@ -1,21 +1,12 @@
 const Task = require('../models/task');
-const User = require('../models/user');
 const { v4: uuid } = require('uuid');
 
 // Create Task
 exports.createTask = async (req, res) => {
   try {
-    const { userId } = req.params;
     const { name, priority, dueDate } = req.body;
-    console.log('userId', userId);
-    
-    const user = await User.findOne({ where: { id: userId } });
 
-    if (!user) {
-      return res.status(403).json('User not found');
-    }
-
-    const newTask = await Task.create({ id: uuid(), userId, name, priority, dueDate });
+    const newTask = await Task.create({ id: uuid(), name, priority, dueDate });
 
     res.status(201).json({ message: 'Task created successfully', newTask });
   } catch (error) {
