@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const sequelize = require('./database/sequelize');
 const taskRoutes = require('./routes/tasksRouter');
+const taskDetailsRoutes = require('./routes/taskDetailsRouter'); // New router for TaskDetails
 
 const PORT = 4578;
 
@@ -9,7 +10,8 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(taskRoutes); // UserRoutes has been removed
+app.use(taskRoutes);
+app.use(taskDetailsRoutes); // Include TaskDetails routes
 
 const server = async () => {
   try {
