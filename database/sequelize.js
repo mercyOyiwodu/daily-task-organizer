@@ -6,3 +6,4 @@ const sequelize = new Sequelize('sql10760451', 'sql10760451', '4Ld7cVSNfH', {
 });
 
 module.exports = sequelize;
+
