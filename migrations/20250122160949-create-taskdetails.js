@@ -21,7 +21,7 @@ module.exports = {
       taskId: {
         type: Sequelize.UUID,
         references: {
-          model: 'Tasks',
+          model: 'tasks',
           key: 'id'
         },
         allowNull: false,
