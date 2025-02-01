@@ -4,7 +4,9 @@ const TaskDetails = require('../models/taskDetails');
 exports.createTaskDetail = async (req, res) => {
   try {
     const { priority, taskId } = req.body;
+    console.log(req.body)
     const newTaskDetail = await TaskDetails.create({ priority,  taskId });
+    console.log(newTaskDetail)
     res.status(201).json({ message: 'Task detail created successfully', newTaskDetail });
     
   } catch (error) {
