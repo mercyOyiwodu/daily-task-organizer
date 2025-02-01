@@ -27,9 +27,10 @@ exports.updateTaskDetail = async (req, res) => {
     const { id } = req.params;
     const { priority, isCompleted } = req.body;
     const updated = await TaskDetails.update({ priority, isCompleted }, { where: { id } });
-    if (updated[0]) {
+    
+    if (updated) {
       const updatedTaskDetail = await TaskDetails.findByPk(id);
-      return res.status(200).json({ message: 'Task detail updated successfully', updatedTaskDetail });
+      return res.status(200).json({ message: 'Task detail updated successfully', data: updatedTaskDetail });
     } else {
       return res.status(404).json({ error: 'Task detail not found' });
     }

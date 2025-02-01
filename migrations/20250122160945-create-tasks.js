@@ -8,22 +8,13 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.UUID,
       },
-      name: {
+      taskName: {
         type: Sequelize.STRING,
-        allowNull: false,
-      },
-      priority: {
-        type: Sequelize.ENUM,
-        values: ['low', 'medium', 'high'],
         allowNull: false,
       },
       dueDate: {
         type: Sequelize.STRING,
         allowNull: false,
-      },
-      isCompleted: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false,
       },
       createdAt: {
         allowNull: false,

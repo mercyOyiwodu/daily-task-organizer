@@ -8,5 +8,4 @@ router.post('/tasksDetails', createTaskDetail);
 router.get('/tasksDetails', getTaskDetails);
 
 router.put('/tasksDetails/:id', updateTaskDetail);
-
 module.exports = router;

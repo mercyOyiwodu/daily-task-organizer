@@ -5,10 +5,11 @@ const TaskDetails = require('../models/taskDetails');
 exports.createTask = async (req, res) => {
   try {
     const { taskName, dueDate } = req.body;
-    const newTask = await Tasks.create( taskName, dueDate );
+    
+    const newTask = await Tasks.create({ taskName, dueDate });
     res.status(201).json({ message: 'Task created successfully', newTask });
   } catch (error) {
-    res.status(500).json({ message: 'Internal server error', error: error });
+    res.status(500).json({ message: 'Internal server error', error: error.message });
   }
 };
 
