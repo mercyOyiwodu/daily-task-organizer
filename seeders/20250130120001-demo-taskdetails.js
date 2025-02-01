@@ -3,9 +3,9 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     try {
-    await queryInterface.bulkDelete('TaskDetails', null, {}); // Clear existing entries before seeding
+    await queryInterface.bulkDelete('task_details', null, {}); // Clear existing entries before seeding
 
-      await queryInterface.bulkInsert('TaskDetails', [
+      await queryInterface.bulkInsert('task_details', [
         {
           priority: 'high', // Correct ENUM value
           isCompleted: false,
@@ -22,11 +22,11 @@ module.exports = {
         }
       ], {});
     } catch (error) {
-      console.error('Error seeding TaskDetails:', error);
+      console.error('Error seeding task details:', error);
     }
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete('TaskDetails', null, {});
+    await queryInterface.bulkDelete('task_details', null, {});
   }
 };

@@ -6,6 +6,7 @@ exports.createTaskDetail = async (req, res) => {
     const { priority, isCompleted, taskId } = req.body;
     const newTaskDetail = await TaskDetails.create({ priority, isCompleted, taskId });
     res.status(201).json({ message: 'Task detail created successfully', newTaskDetail });
+    
   } catch (error) {
     res.status(500).json({ message: 'Internal server error', error: error });
   }
@@ -16,6 +17,7 @@ exports.getTaskDetails = async (req, res) => {
   try {
     const taskDetails = await TaskDetails.findAll();
     res.status(200).json({ message: 'Fetch task details successfully', data: taskDetails });
+
   } catch (error) {
     res.status(500).json({ message: 'Internal server error', error: error.message });
   }

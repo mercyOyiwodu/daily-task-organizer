@@ -24,6 +24,8 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
       },
+    },  {
+      engine: 'InnoDB',  // Ensure InnoDB is used for foreign key support
     });
   },
 
