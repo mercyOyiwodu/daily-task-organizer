@@ -21,8 +21,8 @@ const server = async () => {
     console.error('Unable to connect to the database:', error);
   }
 };
-server();
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+

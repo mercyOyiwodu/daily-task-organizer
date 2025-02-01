@@ -22,7 +22,7 @@ TaskDetails.init({
     type: DataTypes.UUID,
     allowNull: false,
     references: {
-      model: 'Tasks',
+      model: 'tasks',
       key: 'id'
     }
   }
