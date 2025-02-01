@@ -19,6 +19,7 @@ Tasks.init({
   }
 }, {
   sequelize,
+  tableName: 'tasks',
   timestamps: true,
 });
 
