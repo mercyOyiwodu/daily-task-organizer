@@ -28,7 +28,7 @@ TaskDetails.init({
   }
 }, {
   sequelize,
-  tableName: "tasks",
+  tableName: "task_details",
   timestamps: true,
 });
 
